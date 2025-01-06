@@ -42,6 +42,7 @@ gem "thruster", require: false
 gem "dartsass-rails"
 gem "bootstrap", "~> 5.3.3"
 gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
 gem 'rubyzip', '~> 2.3'
 
 group :development, :test do
