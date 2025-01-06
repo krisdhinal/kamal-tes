@@ -1,27 +1,17 @@
-<div class="container mt-5">
-  <h1>Posts</h1>
-  <%= link_to "New Post", new_post_path, class: "btn btn-primary mb-3" %>
+<h1>Posts</h1>
+<%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
 
-  <table class="table table-bordered table-striped">
-    <thead class="table-dark">
-      <tr>
-        <th>Title</th>
-        <th>Body</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td><%= post.title %></td>
-          <td><%= truncate(post.body, length: 100) %></td>
-          <td>
-            <%= link_to "Show", post_path(post), class: "btn btn-info btn-sm" %>
-            <%= link_to "Edit", edit_post_path(post), class: "btn btn-warning btn-sm" %>
-            <%= button_to "Delete", post_path(post), method: :delete, class: "btn btn-danger btn-sm", form: { data: { turbo_confirm: "Are you sure?" } } %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="posts-container" data-controller="infinite-scroll" data-infinite-scroll-endpoint="<%= posts_path(format: :js) %>">
+    <%= render @posts %>
+  </tbody>
+</table>
+
+<div id="loading-indicator" style="display: none;">Loading...</div>
