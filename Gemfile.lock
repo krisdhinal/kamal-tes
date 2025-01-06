@@ -314,7 +314,7 @@ GEM
       rubocop-performance
       rubocop-rails
     ruby-progressbar (1.13.0)
-    rubyzip (2.4)
+    rubyzip (2.4.1)
     sass-embedded (1.83.1-aarch64-linux-gnu)
       google-protobuf (~> 4.29)
     sass-embedded (1.83.1-aarch64-linux-musl)
@@ -429,6 +429,7 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 8.0.1)
   rubocop-rails-omakase
+  rubyzip (~> 2.3)
   selenium-webdriver
   solid_cable
   solid_cache
