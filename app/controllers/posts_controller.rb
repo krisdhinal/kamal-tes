@@ -3,14 +3,8 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = if params[:search].present?
-      Post.where('LOWER(title) LIKE ? OR LOWER(body) LIKE ?', 
-        "%#{params[:search].downcase}%",
-        "%#{params[:search].downcase}%"
-      )
-    else
-      Post.all
-    end
+    # @posts = Post.all
+    @posts = Post.page(params[:page]).per(10)
   end
 
   # GET /posts/1 or /posts/1.json
